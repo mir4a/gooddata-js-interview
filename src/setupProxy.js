@@ -1,3 +1,4 @@
+/* eslint-disable */
 // Copyright (C) 2007-2019, GoodData(R) Corporation. All rights reserved.
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires

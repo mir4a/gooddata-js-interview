@@ -1,3 +1,4 @@
+/* eslint-disable */
 // Copyright (C) 2007-2019, GoodData(R) Corporation. All rights reserved.
 
 // In production, we register a service worker to serve assets from local cache.
