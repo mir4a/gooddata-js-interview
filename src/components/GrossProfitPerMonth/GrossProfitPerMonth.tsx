@@ -13,7 +13,7 @@ export default function GrossProfitMonth(
   props: GrossProfitMonthProps,
 ): React.ReactElement {
   const dateAttribute = '/gdc/md/xms7ga4tf3g3nzucd8380o2bev8oeknp/obj/2180';
-  const [month, setMonth] = useState('3');
+  const [month, setMonth] = useState('1');
   const { projectId, measures } = props;
 
   const handleMonthChange = useCallback(
@@ -41,7 +41,7 @@ export default function GrossProfitMonth(
     <>
       <h1>
         $ Gross Profit in month
-        {<MonthPicker onChange={handleMonthChange} defaultValue={3} />}
+        {<MonthPicker onChange={handleMonthChange} />}
         2016
       </h1>
       <div>
