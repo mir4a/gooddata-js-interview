@@ -1,3 +1,3 @@
-import GrossProfitAllMonth from './GrossProfitAllMonth'
+import GrossProfitAllMonth from './GrossProfitAllMonth';
 
-export default GrossProfitAllMonth
+export default GrossProfitAllMonth;

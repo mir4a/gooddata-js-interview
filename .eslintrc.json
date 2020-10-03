@@ -7,9 +7,6 @@
     "prettier/@typescript-eslint",
     "plugin:prettier/recommended"
   ],
-  "ecmaFeatures": {
-    "jsx": true
-  },
   "parserOptions": {
     "ecmaVersion": 2020,
     "sourceType": "module"

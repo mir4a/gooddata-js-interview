@@ -1,20 +1,23 @@
-import React, { ChangeEvent, useCallback } from 'react'
-import './MonthPicker.scss'
+import React, { ChangeEvent, useCallback } from 'react';
+import './MonthPicker.scss';
 
 interface MonthPickerProps {
-  onChange: Function;
+  onChange: (event: ChangeEvent<HTMLSelectElement>) => void;
   defaultValue?: number;
 }
 
 // eslint-disable-next-line max-len
-export default function MonthPicker(props: MonthPickerProps): React.ReactElement {
+export default function MonthPicker(
+  props: MonthPickerProps,
+): React.ReactElement {
   const { defaultValue = '1', onChange } = props;
 
   const handleOnChange = useCallback(
     (event: ChangeEvent<HTMLSelectElement>) => {
-    console.log('onchange')
-    onChange && onChange(event)
-  }, [onChange])
+      onChange && onChange(event);
+    },
+    [onChange],
+  );
 
   return (
     <div className="MonthPicker">

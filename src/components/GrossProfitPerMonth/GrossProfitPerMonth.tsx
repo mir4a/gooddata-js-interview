@@ -1,5 +1,5 @@
-import React, {useCallback, useState, useMemo, ChangeEvent} from 'react';
-import MonthPicker from '../base/MonthPicker'
+import React, { useCallback, useState, useMemo, ChangeEvent } from 'react';
+import MonthPicker from '../base/MonthPicker';
 import { VisualizationObject } from '@gooddata/typings';
 import { ColumnChart } from '@gooddata/react-components';
 import { getMonthDateRange } from './helpers/dates';
@@ -8,15 +8,20 @@ export interface GrossProfitMonthProps {
   measures: VisualizationObject.BucketItem[];
   projectId: string;
 }
-  
-export default function GrossProfitMonth(props: GrossProfitMonthProps): React.ReactElement {
+
+export default function GrossProfitMonth(
+  props: GrossProfitMonthProps,
+): React.ReactElement {
   const dateAttribute = '/gdc/md/xms7ga4tf3g3nzucd8380o2bev8oeknp/obj/2180';
   const [month, setMonth] = useState('3');
-  const {projectId, measures} = props;
+  const { projectId, measures } = props;
 
-  const handleMonthChange = useCallback((event: ChangeEvent<HTMLSelectElement>) => {
-    setMonth(event.target.value)
-  }, []);
+  const handleMonthChange = useCallback(
+    (event: ChangeEvent<HTMLSelectElement>) => {
+      setMonth(event.target.value);
+    },
+    [],
+  );
 
   const monthFilter = useMemo(() => {
     const dates = getMonthDateRange('2016', month);
@@ -30,20 +35,22 @@ export default function GrossProfitMonth(props: GrossProfitMonthProps): React.Re
         to: dates[1],
       },
     };
-  }, [month])
-
+  }, [month]);
 
   return (
-  <>
-    <h1>$ Gross Profit in month
-      {<MonthPicker onChange={handleMonthChange} defaultValue={3} />}
-      2016</h1>
-    <div>
-      <ColumnChart
-        measures={measures}
-        filters={[monthFilter]}
-        projectId={projectId}
-      />
-    </div>
-  </>)
+    <>
+      <h1>
+        $ Gross Profit in month
+        {<MonthPicker onChange={handleMonthChange} defaultValue={3} />}
+        2016
+      </h1>
+      <div>
+        <ColumnChart
+          measures={measures}
+          filters={[monthFilter]}
+          projectId={projectId}
+        />
+      </div>
+    </>
+  );
 }
