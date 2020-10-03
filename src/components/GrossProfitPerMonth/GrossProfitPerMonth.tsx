@@ -4,12 +4,12 @@ import { VisualizationObject } from '@gooddata/typings';
 import { ColumnChart } from '@gooddata/react-components';
 import { getMonthDateRange } from './helpers/dates';
 
-export interface GrossProfitMonth {
+export interface GrossProfitMonthProps {
   measures: VisualizationObject.BucketItem[];
   projectId: string;
 }
   
-export default function GrossProfitMonth(props: GrossProfitMonth) {
+export default function GrossProfitMonth(props: GrossProfitMonthProps): React.ReactElement {
   const dateAttribute = '/gdc/md/xms7ga4tf3g3nzucd8380o2bev8oeknp/obj/2180';
   const [month, setMonth] = useState('3');
   const {projectId, measures} = props;
@@ -18,7 +18,7 @@ export default function GrossProfitMonth(props: GrossProfitMonth) {
     setMonth(event.target.value)
   }, []);
 
-  const monthFilter = useMemo(()=>{
+  const monthFilter = useMemo(() => {
     const dates = getMonthDateRange('2016', month);
 
     return {

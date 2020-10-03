@@ -2,8 +2,8 @@
 
 import React, { Component } from 'react';
 import '@gooddata/react-components/styles/css/main.css';
-import { ColumnChart } from '@gooddata/react-components';
 import GrossProfitPerMonth from './components/GrossProfitPerMonth'
+import GrossProfitAllMonth from './components/GrossProfitAllMonth'
 import './App.scss'
 
 const grossProfitMeasure = '/gdc/md/xms7ga4tf3g3nzucd8380o2bev8oeknp/obj/6877';
@@ -13,8 +13,6 @@ const dateAttributeInMonths =
 
 
 class App extends Component {
-  
-
   getMeasures() {
     return [
       {
@@ -52,14 +50,7 @@ class App extends Component {
     return (
       <div className="App">
         <GrossProfitPerMonth measures={measures} projectId={projectId} />
-        <h1>$ Gross Profit - All months</h1>
-        <div>
-          <ColumnChart
-            measures={measures}
-            viewBy={viewBy}
-            projectId={projectId}
-          />
-        </div>
+        <GrossProfitAllMonth measures={measures} projectId={projectId} viewBy={viewBy} />
       </div>
     );
   }
