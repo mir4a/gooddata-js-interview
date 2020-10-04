@@ -5,7 +5,7 @@ exports[`match basic snapshot 1`] = `
   className="MonthPicker"
 >
   <select
-    className="MonthPicker--select"
+    className="MonthPicker__select"
     defaultValue="1"
     onChange={[Function]}
   >
@@ -78,8 +78,8 @@ exports[`render with defaultValue 1`] = `
   className="MonthPicker"
 >
   <select
-    className="MonthPicker--select"
-    defaultValue="2"
+    className="MonthPicker__select"
+    defaultValue={2}
     onChange={[Function]}
   >
     <option

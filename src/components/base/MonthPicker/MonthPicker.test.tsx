@@ -18,7 +18,7 @@ it('match basic snapshot', () => {
 it('render with defaultValue', () => {
   const onChange = jest.fn();
   const tree = renderer
-    .create(<MonthPicker onChange={onChange} defaultValue="2" />)
+    .create(<MonthPicker onChange={onChange} defaultValue={2} />)
     .toJSON();
   expect(tree).toMatchSnapshot();
 });

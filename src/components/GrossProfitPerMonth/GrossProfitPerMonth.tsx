@@ -9,7 +9,7 @@ export interface GrossProfitMonthProps {
   projectId: string;
 }
 
-export default function GrossProfitMonth(
+const GrossProfitMonth = React.memo(function GrossProfitMonth(
   props: GrossProfitMonthProps,
 ): React.ReactElement {
   const dateAttribute = '/gdc/md/xms7ga4tf3g3nzucd8380o2bev8oeknp/obj/2180';
@@ -53,4 +53,6 @@ export default function GrossProfitMonth(
       </div>
     </>
   );
-}
+});
+
+export default GrossProfitMonth;

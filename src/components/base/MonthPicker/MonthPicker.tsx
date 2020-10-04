@@ -6,8 +6,7 @@ interface MonthPickerProps {
   defaultValue?: number;
 }
 
-// eslint-disable-next-line max-len
-export default function MonthPicker(
+export default React.memo(function MonthPicker(
   props: MonthPickerProps,
 ): React.ReactElement {
   const { defaultValue = '1', onChange } = props;
@@ -24,7 +23,7 @@ export default function MonthPicker(
       <select
         defaultValue={defaultValue}
         onChange={handleOnChange}
-        className="MonthPicker--select"
+        className="MonthPicker__select"
       >
         <option value="1">January</option>
         <option value="2">February</option>
@@ -41,4 +40,4 @@ export default function MonthPicker(
       </select>
     </div>
   );
-}
+});

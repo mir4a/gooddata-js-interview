@@ -1,7 +1,16 @@
 /* Copyright (C) 2007-2019, GoodData(R) Corporation. All rights reserved. */
+body {
+  font-family: sans-serif;
+}
+
+$default-block-height: 400px;
 
 .App {
   text-align: center;
+
+  > div {
+    height: $default-block-height;
+  }
 
   &-logo {
     animation: App-logo-spin infinite 20s linear;

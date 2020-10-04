@@ -8,7 +8,7 @@ export interface GrossProfitAllMonthProps {
   viewBy: VisualizationObject.IVisualizationAttribute;
 }
 
-export default function GrossProfitAllMonth(
+const GrossProfitAllMonth = React.memo(function GrossProfitAllMonth(
   props: GrossProfitAllMonthProps,
 ): React.ReactElement {
   const { measures, projectId, viewBy } = props;
@@ -25,4 +25,6 @@ export default function GrossProfitAllMonth(
       </div>
     </>
   );
-}
+});
+
+export default GrossProfitAllMonth;
