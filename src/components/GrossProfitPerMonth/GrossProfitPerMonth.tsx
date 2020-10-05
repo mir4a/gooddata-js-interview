@@ -2,7 +2,7 @@ import React, { useCallback, useState, useMemo, ChangeEvent } from 'react';
 import MonthPicker from '../base/MonthPicker';
 import GrossProfit from '../GrossProfit';
 import { getMonthDateRange } from './helpers/dates';
-import { DATE_ATTR_IN_MONTHS_URI } from '../../constants';
+import { DATE_ATTR_URI } from '../../constants';
 
 interface IGrossProfitMonth {
   defaultMonth?: string;
@@ -28,7 +28,7 @@ const GrossProfitMonth = React.memo(function GrossProfitMonth(
     return {
       absoluteDateFilter: {
         dataSet: {
-          uri: DATE_ATTR_IN_MONTHS_URI,
+          uri: DATE_ATTR_URI,
         },
         from: dates[0],
         to: dates[1],
