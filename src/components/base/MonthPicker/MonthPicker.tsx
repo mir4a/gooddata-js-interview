@@ -3,7 +3,7 @@ import './MonthPicker.scss';
 
 interface MonthPickerProps {
   onChange: (event: ChangeEvent<HTMLSelectElement>) => void;
-  defaultValue?: number;
+  defaultValue?: string;
 }
 
 export default React.memo(function MonthPicker(

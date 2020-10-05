@@ -1,20 +1,19 @@
 import React, { useCallback, useState, useMemo, ChangeEvent } from 'react';
 import MonthPicker from '../base/MonthPicker';
-import { VisualizationObject } from '@gooddata/typings';
-import { ColumnChart } from '@gooddata/react-components';
+import GrossProfit from '../GrossProfit';
 import { getMonthDateRange } from './helpers/dates';
+import { DATE_ATTR_IN_MONTHS_URI } from '../../constants';
 
-export interface GrossProfitMonthProps {
-  measures: VisualizationObject.BucketItem[];
-  projectId: string;
+interface IGrossProfitMonth {
+  defaultMonth?: string;
 }
 
 const GrossProfitMonth = React.memo(function GrossProfitMonth(
-  props: GrossProfitMonthProps,
+  props: IGrossProfitMonth,
 ): React.ReactElement {
-  const dateAttribute = '/gdc/md/xms7ga4tf3g3nzucd8380o2bev8oeknp/obj/2180';
-  const [month, setMonth] = useState('1');
-  const { projectId, measures } = props;
+  const { defaultMonth = '1' } = props;
+
+  const [month, setMonth] = useState(defaultMonth);
 
   const handleMonthChange = useCallback(
     (event: ChangeEvent<HTMLSelectElement>) => {
@@ -29,7 +28,7 @@ const GrossProfitMonth = React.memo(function GrossProfitMonth(
     return {
       absoluteDateFilter: {
         dataSet: {
-          uri: dateAttribute,
+          uri: DATE_ATTR_IN_MONTHS_URI,
         },
         from: dates[0],
         to: dates[1],
@@ -41,15 +40,16 @@ const GrossProfitMonth = React.memo(function GrossProfitMonth(
     <>
       <h1>
         $ Gross Profit in month
-        {<MonthPicker onChange={handleMonthChange} />}
+        {
+          <MonthPicker
+            onChange={handleMonthChange}
+            defaultValue={defaultMonth}
+          />
+        }
         2016
       </h1>
-      <div>
-        <ColumnChart
-          measures={measures}
-          filters={[monthFilter]}
-          projectId={projectId}
-        />
+      <div className="ChartWrapper">
+        <GrossProfit filters={[monthFilter]} />
       </div>
     </>
   );
