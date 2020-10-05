@@ -1,30 +1,27 @@
 import React from 'react';
-import { ColumnChart } from '@gooddata/react-components';
-import { VisualizationObject } from '@gooddata/typings';
+import GrossProfit from '../GrossProfit';
+import { DATE_ATTR_IN_MONTHS_URI } from '../../constants';
 
-export interface GrossProfitAllMonthProps {
-  measures: VisualizationObject.BucketItem[];
-  projectId: string;
-  viewBy: VisualizationObject.IVisualizationAttribute;
-}
+const DATE_ATTR_IN_MONTHS = {
+  visualizationAttribute: {
+    displayForm: {
+      uri: DATE_ATTR_IN_MONTHS_URI,
+    },
+    localIdentifier: 'a1',
+  },
+};
 
-const GrossProfitAllMonth = React.memo(function GrossProfitAllMonth(
-  props: GrossProfitAllMonthProps,
-): React.ReactElement {
-  const { measures, projectId, viewBy } = props;
+const GrossProfitAllMonths = React.memo(
+  function GrossProfitAllMonths(): React.ReactElement {
+    return (
+      <>
+        <h1>$ Gross Profit - All months</h1>
+        <div className="ChartWrapper">
+          <GrossProfit viewBy={DATE_ATTR_IN_MONTHS} />
+        </div>
+      </>
+    );
+  },
+);
 
-  return (
-    <>
-      <h1>$ Gross Profit - All months</h1>
-      <div>
-        <ColumnChart
-          measures={measures}
-          viewBy={viewBy}
-          projectId={projectId}
-        />
-      </div>
-    </>
-  );
-});
-
-export default GrossProfitAllMonth;
+export default GrossProfitAllMonths;
